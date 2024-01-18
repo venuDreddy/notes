@@ -7,7 +7,7 @@
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
-  "author": "",
+  "author": "CH Venu Gopal Reddy",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^3.0.2"
