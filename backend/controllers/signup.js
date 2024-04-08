@@ -4,9 +4,9 @@ const signup = async (req, res) => {
   const { username, password, email } = req.body;
   try {
     //checking if user with given username already exists
-    const query = await db.any(
-      `select id from users where username='${username}'`
-    );
+    const queryString = `select id from users where username=$1`;
+    const values = [username];
+    const query = await db.any(queryString, values);
     //if query.length==0 username is already taken
     if (query.length != 0)
       res
@@ -15,9 +15,9 @@ const signup = async (req, res) => {
     else {
       //inserting username and password
       //using pgcrypto to encrypt password
-      await db.none(
-        `INSERT INTO users(username,password,email) VALUES('${username}',crypt('${password}',gen_salt('bf')),'${email}')`
-      );
+      const query = `INSERT INTO users(username,password,email) VALUES($1,crypt($2,gen_salt('bf')),$3)`;
+      const signUpValues = [username, password, email];
+      await db.none(query, signUpValues);
       res.status(200).json({
         success: true,
         data: { message: `user registered successfully` },
