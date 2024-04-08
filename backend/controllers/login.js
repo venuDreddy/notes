@@ -7,9 +7,9 @@ const login = async (req, res) => {
   try {
     //checking if user exists
     //using pgcrypto to decrypt password
-    const query = await db.any(
-      `SELECT username from users where username='${username}' AND password=crypt('${password}',password)`
-    );
+    const queryString = `SELECT username from users where username=$1 AND password=crypt($2,password)`;
+    const values = [username, password];
+    const query = await db.any(queryString, values);
     //query.length==0 no user exits with given credentials
     if (query.length == 0)
       return res.status(401).json({
