@@ -1,21 +1,32 @@
+import "./App.css";
 const noteClick = (id, setNoteId) => {
   setNoteId(id);
 };
-const LeftPanel = ({ data, setNoteId }) => {
-  // console.log(data);
+const LeftPanel = ({ data, setNoteId, noteId }) => {
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        // backgroundColor: "#B3C8CF",
+      }}
+    >
       {data.map(({ id, title }) => {
         return (
-          <button
-            key={id}
-            id={id}
-            onClick={() => {
-              noteClick(id, setNoteId);
-            }}
-          >
-            {title ? title : "untitled"}
-          </button>
+          <div key={id} style={{ margin: "3px" }}>
+            <button
+              onClick={() => {
+                noteClick(id, setNoteId);
+              }}
+              className={
+                noteId == id
+                  ? `left-panel-element active-left-panel-element`
+                  : `left-panel-element`
+              }
+            >
+              {title ? title : "untitled"}
+            </button>
+          </div>
         );
       })}
     </div>

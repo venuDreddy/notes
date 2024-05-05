@@ -7,8 +7,18 @@ const signup = async (req, res) => {
     const queryString = `select id from users where username=$1`;
     const values = [username];
     const query = await db.any(queryString, values);
-    //if query.length==0 username is already taken
-    if (query.length != 0)
+    const emailQuery = `select id from users where email=$1`;
+    const queryValues = [email];
+    const execEmailQuery = await db.any(emailQuery, queryValues);
+    //if query.length!=0 username is already taken
+    //if execEmailQuery!=0 Already has an account with this Email
+    if (execEmailQuery != 0) {
+      res.status(401).json({
+        success: false,
+        status: 401,
+        error: "Already has an account with this Email",
+      });
+    } else if (query.length != 0)
       res
         .status(401)
         .json({ success: false, status: 401, error: "username already taken" });
