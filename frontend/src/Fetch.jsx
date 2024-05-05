@@ -10,8 +10,10 @@ const Fetch = async (url, setData, setLoading, setError, navigateCallBack) => {
     // console.log(JSON.parse(localStorage.getItem("token")));
     const info = await response.json();
     if (response.ok) {
+      let data = info.data;
+      data.sort((x, y) => y.id - x.id);
       setLoading(false);
-      setData(info.data);
+      setData(data);
     } else {
       setLoading(false);
       setError(true);

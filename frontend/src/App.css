@@ -37,13 +37,65 @@
 /* From here the actual css starts */
 * {
   box-sizing: border-box;
+  /* background-color: #dce5e9; */
 }
-
+.add-btn,
+.logout-btn {
+  margin: 5px;
+  margin: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 0.3rem;
+  color: black;
+  background-color: #7ab2b2;
+  border: 2px solid #cde8e5;
+  cursor: pointer;
+  font-weight: bolder;
+  transition: 300ms ease-in 50ms;
+}
+.add-btn:hover,
+.logout-btn:hover {
+  background-color: #4d869c;
+  /* transition: 1s linear ease-in; */
+}
+.left-panel {
+  height: 92vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.left-panel-element {
+  border: none;
+  background-color: transparent;
+  font-weight: bolder;
+  text-align: left;
+  width: 20vw;
+  overflow-x: hidden;
+  padding: 0.25rem;
+}
+.active-left-panel-element {
+  background-color: #e5ddc5;
+  border-radius: 0.25rem;
+}
+.left-panel-element:hover {
+  /* margin: 5px; */
+  /* margin: 0.5rem; */
+  text-align: left;
+  width: 20vw;
+  overflow-x: hidden;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  color: black;
+  background-color: #e5ddc5;
+  /* border: 2px solid #b3c8cf; */
+  cursor: pointer;
+  font-weight: bolder;
+  transition: 100ms ease-in 50ms;
+}
 .input-field {
   outline: none;
   border: 0px solid;
   width: 100%;
   margin-bottom: 10px;
+  background: transparent;
 }
 .textarea {
   width: 100%;
@@ -51,9 +103,19 @@
   border: 0px solid;
   outline: none;
   resize: none;
+  height: 67vh;
 }
+.textarea body::-webkit-scrollbar {
+  display: none;
+}
+
 .notes-display {
   margin: 10px;
+  border-left: 2px solid black;
+  padding-left: 20px;
+  height: 96h;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .save-delete-container {
   width: 70vw;

@@ -13,10 +13,13 @@ const DeleteNotes = async (id, NotesData, setData, setError, setLoading) => {
   });
   const data = await response.json();
   if (response.ok) {
-    const updatedData = NotesData.filter((singleData) => {
+    let updatedData = NotesData.filter((singleData) => {
       if (singleData.id != id) return singleData;
     });
     console.log(updatedData);
+    updatedData.sort((x, y) => {
+      return y.id - x.id;
+    });
     setData(updatedData);
   } else {
     console.log("there was a error");

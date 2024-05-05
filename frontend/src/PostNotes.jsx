@@ -1,5 +1,5 @@
 import Fetch from "./Fetch";
-const PostNotes = async (setData, setError, setLoading) => {
+const PostNotes = async (data, setData, setError, setLoading, setNoteId) => {
   const url = "http://localhost:5000/api/notes";
   const response = await fetch(url, {
     method: "POST",
@@ -16,7 +16,15 @@ const PostNotes = async (setData, setError, setLoading) => {
   console.log(response);
   console.log(response.ok);
   if (response.ok) {
-    Fetch(url, setData, setLoading, setError);
+    const newNote = await response.json();
+    const obj = newNote.data.message;
+    console.log(obj);
+    let newData = [...data, obj];
+    newData.sort((x, y) => {
+      return y.id - x.id;
+    });
+    setNoteId(obj.id);
+    setData(newData);
   }
 };
 export default PostNotes;

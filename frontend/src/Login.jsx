@@ -1,37 +1,112 @@
 import { useNavigate } from "react-router-dom";
 import VerifyUser from "./VerifyUser";
+import "./loginAndSignup.css";
+import { useState } from "react";
 const Login = () => {
   const url = "http://localhost:5000/api/login";
   const navigate = useNavigate();
+  const [isValid, setIsValid] = useState(true);
   return (
-    <div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          VerifyUser(
-            url,
-            e.target.username.value,
-            e.target.password.value,
-            (path) => {
-              navigate(path);
-            }
-          );
-        }}
-      >
-        <div>
-          <label>Username: </label>
-          <input type='text' name='username' />
+    <section>
+      {" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>{" "}
+      <span></span> <span></span> <span></span> <span></span> <span></span>
+      <div className='signin'>
+        <div className='content'>
+          <h2>Sign In</h2>
+
+          <form
+            className='form'
+            onSubmit={(e) => {
+              e.preventDefault();
+              VerifyUser(
+                url,
+                e.target.username.value,
+                e.target.password.value,
+                (path) => {
+                  navigate(path);
+                },
+                setIsValid
+              );
+            }}
+          >
+            <div className='inputBox'>
+              <input type='text' name='username' required /> <i>Username</i>
+            </div>
+
+            <div className='inputBox'>
+              <input type='password' name='password' required /> <i>Password</i>
+            </div>
+            {isValid ? (
+              ""
+            ) : (
+              <div>
+                <p style={{ color: "red" }}>Invalid Username/Password</p>
+              </div>
+            )}
+            <div className='links'>
+              {" "}
+              <p>Don't have an account?</p>
+              <a href='/signUp'>Signup</a>
+            </div>
+
+            <div className='inputBox'>
+              <input type='submit' value='Login' />
+            </div>
+          </form>
         </div>
-        <div>
-          <label>Password: </label>
-          <input type='password' name='password' />
-        </div>
-        <button type='submit'>Submit</button>
-      </form>
-      <div>
-        Don't have an account <a href='/signUp'>signup</a>
       </div>
-    </div>
+    </section>
   );
 };
 export default Login;

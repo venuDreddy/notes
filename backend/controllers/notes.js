@@ -22,13 +22,14 @@ const postNotes = async (req, res) => {
   try {
     const { username } = req.jwtPayload.data;
     const { title, content } = req.body;
-    const queryString = `INSERT INTO notes(username,title,content,created_at,updated_at) VALUES($1,$2,$3,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)`;
+    const queryString = `INSERT INTO notes(username,title,content,created_at,updated_at) VALUES($1,$2,$3,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP) RETURNING *`;
     const values = [username, title, content];
-    await db.none(queryString, values);
+    const query = await db.result(queryString, values);
+    // console.log(query.rows);
     res.status(200).json({
       success: true,
       data: {
-        message: "created successfully",
+        message: query.rows[0],
       },
     });
   } catch (error) {
