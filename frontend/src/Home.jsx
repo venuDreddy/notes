@@ -6,8 +6,9 @@ import { useNavigate } from "react-router-dom";
 import LeftPanel from "./LeftPanel";
 import "./App.css";
 const Home = () => {
-  const baseUrl = import.meta.env.URL;
+  const baseUrl = import.meta.env.VITE_URL;
   const url = baseUrl + "api/notes";
+  console.log(url);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);

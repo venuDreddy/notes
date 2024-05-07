@@ -5,6 +5,7 @@ const VerifyUser = async (
   navigateCallBack,
   setIsValid
 ) => {
+  console.log(url);
   try {
     const response = await fetch(url, {
       method: "POST",

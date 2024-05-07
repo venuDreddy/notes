@@ -3,7 +3,7 @@ import VerifyUser from "./VerifyUser";
 import "./loginAndSignup.css";
 import { useState } from "react";
 const Login = () => {
-  const baseUrl = import.meta.env.URL;
+  const baseUrl = import.meta.env.VITE_URL;
   const url = baseUrl + "api/login";
   const navigate = useNavigate();
   const [isValid, setIsValid] = useState(true);
