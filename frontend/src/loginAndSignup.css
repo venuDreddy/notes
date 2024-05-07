@@ -5,11 +5,8 @@
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
 }
-/* * {
-  background: transparent;
-} */
+
 section {
-  /* background: transparent; */
   position: absolute;
   width: 100vw;
   height: 100vh;

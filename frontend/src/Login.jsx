@@ -3,7 +3,8 @@ import VerifyUser from "./VerifyUser";
 import "./loginAndSignup.css";
 import { useState } from "react";
 const Login = () => {
-  const url = "http://localhost:5000/api/login";
+  const baseUrl = import.meta.env.URL;
+  const url = baseUrl + "api/login";
   const navigate = useNavigate();
   const [isValid, setIsValid] = useState(true);
   return (

@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 import LeftPanel from "./LeftPanel";
 import "./App.css";
 const Home = () => {
-  const url = "http://localhost:5000/api/notes";
+  const baseUrl = import.meta.env.URL;
+  const url = baseUrl + "api/notes";
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -67,11 +68,8 @@ const Home = () => {
       </div>
       <div
         style={{
-          // height: "100vh",
-          // borderLeft: "2px solid black",
           margin: "10px",
           position: "relative",
-          // background: "white",
         }}
       >
         <SingleNote

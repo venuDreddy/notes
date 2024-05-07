@@ -1,5 +1,6 @@
 const PutNotes = async (id, title, content, data, setData) => {
-  const url = "http://localhost:5000/api/notes/" + id;
+  const baseUrl = import.meta.env.URL;
+  const url = baseUrl + "api/notes/" + id;
   const response = await fetch(url, {
     method: "PUT",
     body: JSON.stringify({

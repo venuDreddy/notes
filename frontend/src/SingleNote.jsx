@@ -49,7 +49,6 @@ const SingleNote = ({ id, data, setData, setError, setLoading }) => {
           />
         </div>
         <div>
-          {/* <label>Title: </label> */}
           <input
             type='text'
             value={titleValue}
@@ -59,7 +58,6 @@ const SingleNote = ({ id, data, setData, setError, setLoading }) => {
           />
         </div>
         <div>
-          {/* <label>Content: </label> */}
           <textarea
             value={contentValue}
             onChange={(e) => setContentValue(e.target.value)}

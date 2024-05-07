@@ -7,7 +7,6 @@ const Fetch = async (url, setData, setLoading, setError, navigateCallBack) => {
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
       },
     });
-    // console.log(JSON.parse(localStorage.getItem("token")));
     const info = await response.json();
     if (response.ok) {
       let data = info.data;
