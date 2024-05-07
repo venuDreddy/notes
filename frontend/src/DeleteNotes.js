@@ -1,6 +1,7 @@
 import Fetch from "./Fetch";
 const DeleteNotes = async (id, NotesData, setData, setError, setLoading) => {
-  const url = "http://localhost:5000/api/notes/" + id;
+  const baseUrl = import.meta.env.URL;
+  const url = baseUrl + "api/notes/" + id;
   const response = await fetch(url, {
     method: "DELETE",
     body: JSON.stringify({

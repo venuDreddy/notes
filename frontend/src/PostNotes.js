@@ -1,6 +1,7 @@
 import Fetch from "./Fetch";
 const PostNotes = async (data, setData, setError, setLoading, setNoteId) => {
-  const url = "http://localhost:5000/api/notes";
+  const baseUrl = import.meta.env.URL;
+  const url = baseUrl + "api/notes";
   const response = await fetch(url, {
     method: "POST",
     headers: {
@@ -12,7 +13,6 @@ const PostNotes = async (data, setData, setError, setLoading, setNoteId) => {
       content: "",
     }),
   });
-  //   const data = await response.json();
   console.log(response);
   console.log(response.ok);
   if (response.ok) {

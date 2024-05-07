@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import signUser from "./signUser";
 import { useState } from "react";
 const SignUp = () => {
-  const url = "http://localhost:5000/api/signup";
+  const baseUrl = import.meta.env.URL;
+  const url = baseUrl + "api/signup";
   const navigate = useNavigate();
   const [usernameError, SetUsernameError] = useState();
   const [emailError, SetEmailError] = useState();

@@ -8,7 +8,6 @@ const LeftPanel = ({ data, setNoteId, noteId }) => {
       style={{
         display: "flex",
         flexDirection: "column",
-        // backgroundColor: "#B3C8CF",
       }}
     >
       {data.map(({ id, title }) => {
