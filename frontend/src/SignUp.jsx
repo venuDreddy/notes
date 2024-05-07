@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import signUser from "./signUser";
 import { useState } from "react";
 const SignUp = () => {
-  const baseUrl = import.meta.env.URL;
+  const baseUrl = import.meta.env.VITE_URL;
   const url = baseUrl + "api/signup";
   const navigate = useNavigate();
   const [usernameError, SetUsernameError] = useState();

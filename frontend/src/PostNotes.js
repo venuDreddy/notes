@@ -1,6 +1,6 @@
 import Fetch from "./Fetch";
 const PostNotes = async (data, setData, setError, setLoading, setNoteId) => {
-  const baseUrl = import.meta.env.URL;
+  const baseUrl = import.meta.env.VITE_URL;
   const url = baseUrl + "api/notes";
   const response = await fetch(url, {
     method: "POST",
